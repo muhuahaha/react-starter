@@ -45,15 +45,17 @@ function FeedbackForm() {
         text,
         rating,
       };
+
       if (feedbackEdit.edit === true) {
         updateFeedback(feedbackEdit.item.id, newFeedback);
-        feedbackEdit.edit = false;
       } else {
         addFeedback(newFeedback);
       }
 
+      // NOTE: reset to default state after submission
+      setBtnDisabled(true); // 👈  add this line to reset disabled
+      setRating(10); //👈 add this line to set rating back to 10
       setText("");
-      setBtnDisabled(true);
     }
   };
 
